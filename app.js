@@ -1,16 +1,8 @@
-// Advice go to https://www.reddit.com/r/learnjavascript/comments/c8ty83/build_a_weather_app_using_javascript_beginners/
-// Bing Mpas - Key: AgmoAdfq0jXG27tP_Xjl2WBAKFFWO9xW5x8TDEjnjtczaT-2fLBpsaBtQtU1KBs-
-// Notes - only works in EU!! Only supported till 2020
-
-// find distance from center to closest pin
-// find name of closest pin
-// Names and info of any clicked pins!
-
-/// Global Variables
-
+// Global Variables
 var longitude, latitude;
+var map;
 
-// CHECK IF BROWSER SUPPORTS GEOLOCATION
+// Check to see if browser supports geolocation services
 if ("geolocation" in navigator) {
   console.log("Geolocation is Avaliable");
   navigator.geolocation.getCurrentPosition(setPosition, positionError); // First argument is sucess, second is on error.
@@ -20,30 +12,28 @@ if ("geolocation" in navigator) {
   notificationElement.innerHTML = "<p>Browser doesn't Support Geolocation</p>";
 }
 
-// What happens when a location is found
+// When a location is found, the location information is put into global variables, and the getMap function is invoked
 function setPosition(position) {
   latitude = position.coords.latitude;
   longitude = position.coords.longitude;
-  console.log(latitude);
   console.log("Latitude = ", latitude, "longitude = ", longitude);
 
-  setTimeout(getMap, 1000); // Calls the map creator after the lat and long have been fixed, so no errors! Timeout to ensure API is loaded correctly.
+  setTimeout(getMap, 500); // Calls the map creator after the lat and long have been fixed, so no errors! Timeout to ensure API is loaded correctly.
 }
 
 // takes a PositonError output, when a success (setPosition) isn't achieved. Gives the reason for the error.
 function positionError(error) {
-  document.querySelector(".notification").style.display = "block"; // Changes the CSS element from display:none (hidden), to block so thats its visable
-  document.querySelector(".notification").innerHTML = error.message; // Put's the error message in notification div.
+  document.querySelector(".notification").style.display = "block"; // Changes the CSS element from display:none (hidden), to block so thats it's visable
+  document.querySelector(".notification").innerHTML = error.message; // Put's the error message in notification div
 }
 
-//  BING Maps API
-// Calls from API which is listed in indexhtml
+//  BING Maps API - Calls from API which is listed in index.html
+// function retrieves a map, adds the source data from Naviteq, and searches for any Gyms in a 25km radius of our location)
 function getMap() {
   var map = new Microsoft.Maps.Map(document.getElementById("myMap"), {
     center: new Microsoft.Maps.Location(latitude, longitude),
-    zoom: 13
+    zoom: 10
   });
-  console.log(map);
 
   var sdsDataSourceUrl =
     "http://spatial.virtualearth.net/REST/v1/data/c2ae584bbccc4916a0acf75d1e6947b4/NavteqEU/NavteqPOIs";
