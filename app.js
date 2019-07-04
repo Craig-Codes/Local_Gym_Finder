@@ -1,6 +1,5 @@
 // Global Variables
 var longitude, latitude;
-var map;
 
 // Check to see if browser supports geolocation services
 if ("geolocation" in navigator) {
@@ -36,7 +35,7 @@ function getMap() {
   });
 
   var sdsDataSourceUrl =
-    "http://spatial.virtualearth.net/REST/v1/data/c2ae584bbccc4916a0acf75d1e6947b4/NavteqEU/NavteqPOIs";
+    "https://spatial.virtualearth.net/REST/v1/data/c2ae584bbccc4916a0acf75d1e6947b4/NavteqEU/NavteqPOIs";
   // Load the Bing Spatial Data Services module
   Microsoft.Maps.loadModule("Microsoft.Maps.SpatialDataService", function() {
     var queryOptions = {
