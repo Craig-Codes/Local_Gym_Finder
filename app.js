@@ -17,7 +17,7 @@ function setPosition(position) {
   longitude = position.coords.longitude;
   console.log("Latitude = ", latitude, "longitude = ", longitude);
 
-  setTimeout(getMap, 500); // Calls the map creator after the lat and long have been fixed, so no errors! Timeout to ensure API is loaded correctly.
+  setTimeout(getMap, 1000); // Calls the map creator after the lat and long have been fixed, so no errors! Timeout to ensure API is loaded correctly.
 }
 
 // takes a PositonError output, when a success (setPosition) isn't achieved. Gives the reason for the error.
