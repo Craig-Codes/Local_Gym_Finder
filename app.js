@@ -18,7 +18,7 @@ function setPosition(position) {
   longitude = position.coords.longitude;
   console.log("Latitude = ", latitude, "longitude = ", longitude);
 
-  setTimeout(getMap, 500); // Calls the map creator after the lat and long have been fixed, so no errors! Timeout to ensure API is loaded correctly.
+  setTimeout(getMap, 1000); // Calls the map creator after the lat and long have been fixed, so no errors! Timeout to ensure API is loaded correctly.
 }
 
 // takes a PositonError output, when a success (setPosition) isn't achieved. Gives the reason for the error.
@@ -36,7 +36,7 @@ function getMap() {
   });
 
   var sdsDataSourceUrl =
-    "http://spatial.virtualearth.net/REST/v1/data/c2ae584bbccc4916a0acf75d1e6947b4/NavteqEU/NavteqPOIs";
+    "https://spatial.virtualearth.net/REST/v1/data/c2ae584bbccc4916a0acf75d1e6947b4/NavteqEU/NavteqPOIs";
   // Load the Bing Spatial Data Services module
   Microsoft.Maps.loadModule("Microsoft.Maps.SpatialDataService", function() {
     var queryOptions = {
