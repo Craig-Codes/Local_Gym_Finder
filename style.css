@@ -1,0 +1,71 @@
+/* Background image is white brick gym wall. Repeating at size 60% */
+* {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+body {
+  background-image: url(images/whitebrick.jpg);
+
+  background-size: 60%;
+}
+
+.container {
+  /* Whole app details sit inside a container */
+  width: 600px;
+  display: block; /* Stretches the space out by the 300 pixels */
+  margin: 0 auto; /* centers the container block */
+  position: relative;
+  top: 50px;
+  border-radius: 10px; /* makes edges soft */
+  border: 6px solid silver;
+  padding-bottom: 30px;
+  background-color: #fff;
+}
+
+.app-title {
+  text-align: center;
+  width: 600px;
+  height: 75px;
+  border-radius: 10px; /* corner rounding */
+}
+
+.app-title p {
+  padding: 15px;
+  margin: 0 auto;
+  font-size: 2.2em;
+  color: black;
+}
+
+.notification {
+  background-color: #f8d7da;
+  display: none; /* Hides until changed to block to bring up */
+  text-align: center;
+}
+
+#myMap {
+  /* where the google maps image will sit */
+  position: relative;
+  width: 600px;
+  height: 400px;
+}
+
+.nearest-gym {
+  width: 600px;
+  height: 50px;
+}
+
+.nearest-gym p {
+  padding: 20px;
+  margin: 0;
+  color: #0033cc;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.location p {
+  margin: 0;
+  padding: 10px;
+  color: #721c24;
+  text-align: center;
+  font-size: 0.8em;
+}
