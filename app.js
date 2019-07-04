@@ -1,6 +1,5 @@
 // Global Variables
 var longitude, latitude;
-var map;
 
 // Check to see if browser supports geolocation services
 if ("geolocation" in navigator) {
