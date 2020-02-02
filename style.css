@@ -1,19 +1,21 @@
-
+/* Background image is white brick gym wall. Repeating at size 60% */
 * {
   font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 html {
-  background: url(images/whitebrick.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  height: 100%;
+  background: url(images/whitebrick.jpg) center center fixed;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
 }
 
 .container {
   /* Whole app details sit inside a container */
-  width: 600px;
+  overflow: hidden;
+  width: 50%;
   display: block; /* Stretches the space out by the 300 pixels */
   margin: 0 auto; /* centers the container block */
   position: relative;
@@ -26,12 +28,14 @@ html {
 
 .app-title {
   text-align: center;
-  width: 600px;
+  width: 100%;
   height: 75px;
   border-radius: 10px; /* corner rounding */
 }
 
 .app-title p {
+  width: 100%;
+  text-align: center;
   padding: 15px;
   margin: 0 auto;
   font-size: 2.2em;
@@ -47,18 +51,18 @@ html {
 #myMap {
   /* where the google maps image will sit */
   position: relative;
-  width: 600px;
+  width: 100%;
   height: 450px;
 }
 
 .nearest-gym {
-  width: 600px;
+  width: 100%;
   height: 50px;
 }
 
 .nearest-gym p {
+  width: 100%;
   padding: 20px;
-  margin: 0;
   color: #0033cc;
   font-size: 1.2em;
   text-align: center;
