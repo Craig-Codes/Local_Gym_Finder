@@ -5,19 +5,20 @@
 
 html {
   background: url(images/whitebrick.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  -webkit-background-size: stretch;
+  -moz-background-size: stretch;
+  -o-background-size: stretch;
+  background-size: stretch;
 }
 
 .container {
   /* Whole app details sit inside a container */
   width: 600px;
-  display: block; /* Stretches the space out by the 300 pixels */
-  margin: 0 auto; /* centers the container block */
-  position: relative;
-  top: 50px;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 10px; /* makes edges soft */
   border: 6px solid silver;
   padding-bottom: 30px;
