@@ -79,26 +79,30 @@ html {
 }
 
 #pin-left {
-  height: 25px;
-  width: 25px;
-  background-color: rgb(58, 57, 57);
+  height: 30px;
+  width: 30px;
+  background-color: rgb(41, 41, 41);
   border-radius: 50%;
-  border: 2px solid black;
   display: inline-block;
   position: absolute;
   left: 4%;
   bottom: 85%;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
 }
 
 #pin-right {
-  height: 25px;
-  width: 25px;
-  background-color: rgb(58, 57, 57);
+  height: 30px;
+  width: 30px;
+  background-color: rgb(41, 41, 41);
   border-radius: 50%;
-  border: 2px solid black;
   display: inline-block;
   z-index: 100;
   position: absolute;
   right: 4%;
   bottom: 85%;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
 }
