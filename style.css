@@ -4,8 +4,11 @@
 }
 
 body {
-  background-image: url(images/whitebrick.jpg);
-  background-size: 60%;
+  background-image: url(images/whitebrick.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .container {
