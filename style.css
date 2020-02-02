@@ -4,11 +4,11 @@
 }
 
 html {
-  background: url(images/whitebrick.jpg) repeat-y center center fixed; 
-  -webkit-background-size: stretch;
-  -moz-background-size: stretch;
-  -o-background-size: stretch;
-  background-size: stretch;
+  background: url(images/whitebrick.jpg) no-repeat center center fixed; 
+  background-size: auto 100%;
+  -webkit-background-size: auto 100%;
+  -moz-background-size: auto 100%;
+  -o-background-size: auto 100%;
 }
 
 .container {
