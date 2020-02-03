@@ -53,6 +53,10 @@ html {
 }
 
 .notification {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  position: relative;
   background-color: #f8d7da;
   display: none; /* Hides until changed to block to bring up */
   text-align: center;
@@ -87,7 +91,7 @@ html {
   display: inline-block;
   position: absolute;
   left: 4%;
-  bottom: 80%;
+  bottom: 81%;
   -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
@@ -102,7 +106,7 @@ html {
   z-index: 100;
   position: absolute;
   right: 4%;
-  bottom: 80%;
+  bottom: 81%;
   -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
