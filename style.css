@@ -113,8 +113,9 @@ html {
 }
 
 .buttons {
-  margin: 40px;
-  width: 94%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 100%;
   height: auto;
   display: flex;
   text-align: center;
