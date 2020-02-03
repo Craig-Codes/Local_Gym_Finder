@@ -26,16 +26,21 @@ html {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  -webkit-box-shadow: 0px 2px 16px 3px rgba(84, 84, 84, 1);
-  -moz-box-shadow: 0px 2px 16px 3px rgba(84, 84, 84, 1);
-  box-shadow: 0px 2px 16px 3px rgba(84, 84, 84, 1);
+  -webkit-box-shadow: 0px 0px 7px 1px rgba(77, 75, 75, 0.75),
+    inset 0px 0px 7px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 7px 1px rgba(77, 75, 75, 0.75),
+    inset 0px 0px 7px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 7px 1px rgba(77, 75, 75, 0.75),
+    inset 0px 0px 7px 1px rgba(0, 0, 0, 0.75);
 }
 
 .app-title {
   text-align: center;
   width: 100%;
   height: 75px;
-  border-radius: 10px; /* corner rounding */
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-decoration: underline;
 }
 
 .app-title p {
@@ -65,14 +70,10 @@ html {
   box-shadow: -1px 11px 16px -5px rgba(84, 84, 84, 1);
 }
 
-.nearest-gym {
+#output {
   width: 100%;
+  padding: 5px;
   height: 50px;
-}
-
-.nearest-gym p {
-  width: 100%;
-  padding: 20px;
   color: #0033cc;
   font-size: 1.2em;
   text-align: center;
@@ -86,7 +87,7 @@ html {
   display: inline-block;
   position: absolute;
   left: 4%;
-  bottom: 85%;
+  bottom: 80%;
   -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
@@ -101,8 +102,95 @@ html {
   z-index: 100;
   position: absolute;
   right: 4%;
-  bottom: 85%;
+  bottom: 80%;
   -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
+}
+
+.buttons {
+  margin: 40px;
+  width: 94%;
+  height: auto;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+#two-miles {
+  margin-right: 6%;
+  border-radius: 20%;
+  padding: 15px 15px 15px 15px;
+  border: 2px solid black;
+  color: #0033cc;
+  background-color: white;
+  font-size: 1em;
+}
+
+#two-miles:hover {
+  cursor: pointer;
+  border-color: #0033cc;
+}
+
+#five-miles {
+  border-radius: 20%;
+  padding: 15px 15px 15px 15px;
+  border: 2px solid black;
+  color: #0033cc;
+  background-color: white;
+  font-size: 1em;
+}
+
+#five-miles:hover {
+  cursor: pointer;
+  border-color: #0033cc;
+}
+
+#ten-miles {
+  margin-left: 6%;
+  border-radius: 20%;
+  padding: 15px 15px 15px 15px;
+  border: 2px solid black;
+  color: #0033cc;
+  background-color: white;
+  font-size: 1em;
+}
+
+#ten-miles:hover {
+  cursor: pointer;
+  border-color: #0033cc;
+}
+
+@media (min-width: 150px) {
+  .container {
+    width: 90%;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .container {
+    width: 90%;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .container {
+    width: 80%;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .container {
+    width: 70%;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    width: 60%;
+  }
 }

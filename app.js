@@ -17,7 +17,7 @@ function setPosition(position) {
   longitude = position.coords.longitude;
   console.log("Latitude = ", latitude, "longitude = ", longitude);
 
-  setTimeout(getMap, 1000); // Calls the map creator after the lat and long have been fixed, so no errors! Timeout to ensure API is loaded correctly.
+  setTimeout(updateMapZoom, 500); // Calls the map creator after the lat and long have been fixed, so no errors! Timeout to ensure API is loaded correctly.
 }
 
 // takes a PositonError output, when a success (setPosition) isn't achieved. Gives the reason for the error.
@@ -28,10 +28,10 @@ function positionError(error) {
 
 //  BING Maps API - Calls from API which is listed in index.html
 // function retrieves a map, adds the source data from Naviteq, and searches for any Gyms in a 25km radius of our location)
-function getMap() {
+function updateMapZoom(zoomAmount) {
   var map = new Microsoft.Maps.Map(document.getElementById("myMap"), {
     center: new Microsoft.Maps.Location(latitude, longitude),
-    zoom: 10
+    zoom: zoomAmount
   });
 
   var sdsDataSourceUrl =
@@ -43,7 +43,7 @@ function getMap() {
       spatialFilter: {
         spatialFilterType: "nearby",
         location: map.getCenter(),
-        radius: 25
+        radius: 10
       },
       filter: "EntityTypeID eq 7997" // Filter to retrieve Gyms
     };
@@ -63,4 +63,43 @@ function getMap() {
     );
   });
   console.log(map);
+}
+
+// Buttons
+
+document.getElementById("two-miles").addEventListener("click", twoMilesPressed);
+document
+  .getElementById("five-miles")
+  .addEventListener("click", fiveMilesPressed);
+document.getElementById("ten-miles").addEventListener("click", tenMilesPressed);
+
+function twoMilesPressed() {
+  console.log("pressed two");
+  updateMapRadius(2);
+  updateMapZoom(12);
+  updateText();
+}
+
+function fiveMilesPressed() {
+  console.log("pressed five");
+  updateMapRadius(5);
+  updateMapZoom(11);
+  updateText();
+}
+
+function tenMilesPressed() {
+  console.log("pressed ten");
+  updateMapRadius(10);
+  updateMapZoom(10);
+  updateText();
+}
+
+//Update map on button click - NEED TO UPDATE THE RADIUS SOMEHOW!
+function updateMapRadius() {}
+
+//Update Screen message
+function updateText(distance, amount) {
+  document.getElementById(
+    "output"
+  ).innerHTML = `There are ${amount} gyms in a ${distance} mile radius - Now go workout!`;
 }
