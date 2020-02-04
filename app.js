@@ -1,83 +1,33 @@
 // Global Variables
-var longitude, latitude;
-var map; // makes map a global variable so that it can be accessed to easily change the properties
+let longitude, latitude; // used to center the map based on user location
+let map; // makes map a global variable so that it can be accessed to change the properties for different button clicks
+let pinQuantity; // variable stores the number of pins created on each search
+let distanceRadius; // Distance radius circle from center of the map in km's
 
 // Check to see if browser supports geolocation services
 if ("geolocation" in navigator) {
-  console.log("Geolocation is Avaliable");
-  navigator.geolocation.getCurrentPosition(setPosition, positionError); // First argument is sucess, second is on error.
+  console.log("Geolocation is Available");
+  navigator.geolocation.getCurrentPosition(setPosition, positionError);
 } else {
-  console.log("Geolocation is not Avaliable");
+  console.log("Geolocation is not Available");
   notificationElement.style.display = "block";
   notificationElement.innerHTML = "Browser doesn't Support Geolocation";
 }
 
 // When a location is found, the location information is put into global variables, and the getMap function is invoked
 function setPosition(position) {
-  latitude = position.coords.latitude;
-  longitude = position.coords.longitude;
-  console.log("Latitude = ", latitude, "longitude = ", longitude);
-
+  latitude = position.coords.latitude; // Gets current position lat
+  longitude = position.coords.longitude; // Gets current position long
   setTimeout(getMap, 1000); // Calls the map creator after the lat and long have been fixed, so no errors! Timeout to ensure API script is loaded correctly.
 }
 
-// takes a PositonError output, when a success (setPosition) isn't achieved. Gives the reason for the error.
+// takes a PositionError output, when a success (setPosition) isn't achieved. Gives the reason for the error.
 function positionError(error) {
-  document.querySelector(".notification").style.display = "block"; // Changes the CSS element from display:none (hidden), to block so thats it's visable
+  document.querySelector(".notification").style.display = "block"; // Changes the CSS element from display:none (hidden), to block so thats it's visible
   document.querySelector(".notification").innerHTML = error.message; // Put's the error message in notification div
 }
 
-//  BING Maps API - Calls from API which is listed in index.html
-// function retrieves a map, adds the source data from Naviteq, and searches for any Gyms in a 25km radius of our location)
-// function updateMapZoom(zoomAmount) {
-//   map = new Microsoft.Maps.Map(document.getElementById("myMap"), {
-//     center: new Microsoft.Maps.Location(latitude, longitude),
-//     zoom: zoomAmount
-//   });
-
-//   // Custom current location pin
-//   var pushpin = new Microsoft.Maps.Pushpin(map.getCenter(), {
-//     icon: "images/powerlifting.png",
-//     anchor: new Microsoft.Maps.Point(12, 39)
-//   });
-//   map.entities.push(pushpin);
-
-//   var sdsDataSourceUrl =
-//   "https://spatial.virtualearth.net/REST/v1/data/c2ae584bbccc4916a0acf75d1e6947b4/NavteqEU/NavteqPOIs";
-
-//   // Load the Bing Spatial Data Services module
-//   Microsoft.Maps.loadModule("Microsoft.Maps.SpatialDataService", function() {
-//     var queryOptions = {
-//       queryUrl: sdsDataSourceUrl,
-//       spatialFilter: {
-//         spatialFilterType: "nearby",
-//         location: map.getCenter(),
-//         radius: 10
-//       },
-//       filter: "EntityTypeID eq 7997" // Filter to retrieve Gyms
-//     };
-//     //Process the query: getting all Gyms  within 25km of map center
-//     Microsoft.Maps.SpatialDataService.QueryAPIManager.search(
-//       queryOptions,
-//       map,
-//       function(data) {
-//         map.entities.push(data);
-//       },
-//       null,
-//       false,
-//       function(status, message) {
-//         document.getElementById("printoutPanel").innerHTML =
-//           "Search failure. NetworkStatus: " + status;
-//       }
-//     );
-//   });
-//   console.log(map);
-// }
-
-// map settings
-
-// Buttons
-
+// Button event listeners and on click functions
 document.getElementById("two-miles").addEventListener("click", twoMilesPressed);
 document
   .getElementById("five-miles")
@@ -85,42 +35,31 @@ document
 document.getElementById("ten-miles").addEventListener("click", tenMilesPressed);
 
 function twoMilesPressed() {
-  console.log("pressed two");
-  updateMapRadius(2);
-  getMap(12);
-  updateText();
+  getMap(12); // Draws a new map with the map zoom set off the argument
+  distanceRadius = 2; // Changes distance radius so that the displayed text gives the user the amount of miles away all of the facilities are (used by the getNearByLocations function)
+  getNearByLocations(3.2); // Checks SDS data and plots each matching data type within the distance radius, provided in km's by the argument
 }
 
 function fiveMilesPressed() {
-  console.log("pressed five");
-  updateMapRadius(5);
   getMap(11);
-  updateText();
+  distanceRadius = 5;
+  getNearByLocations(8);
 }
 
 function tenMilesPressed() {
-  console.log("pressed ten");
-  updateMapRadius(10);
   getMap(10);
-  updateText();
+  distanceRadius = 10;
+  getNearByLocations(16.1);
 }
 
-//Update map on button click - NEED TO UPDATE THE RADIUS SOMEHOW!
-function updateMapRadius() {}
-
-//Update Screen message
-function updateText(distance, amount) {
-  document.getElementById(
-    "output"
-  ).innerHTML = `There are ${amount} gyms in a ${distance} mile radius - Now go workout!`;
-}
-
-var map, layer;
+// Map builder
+let infobox, layer;
 
 //Query URL to the NAVTEQ POI data source
-var sdsDataSourceUrl =
+const sdsDataSourceUrl =
   "https://spatial.virtualearth.net/REST/v1/data/c2ae584bbccc4916a0acf75d1e6947b4/NavteqEU/NavteqPOIs";
 
+// Function draws a map, and sets the zoom value
 function getMap(zoomAmount) {
   map = new Microsoft.Maps.Map("#myMap", {
     center: new Microsoft.Maps.Location(latitude, longitude),
@@ -145,7 +84,6 @@ function getMap(zoomAmount) {
   //Add a click event to the layer to show an infobox when a pushpin is clicked.
   Microsoft.Maps.Events.addHandler(layer, "click", function(e) {
     var m = e.target.metadata;
-
     infobox.setOptions({
       title: m.DisplayName,
       description: m.AddressLine + ", " + m.Locality,
@@ -158,32 +96,29 @@ function getMap(zoomAmount) {
   Microsoft.Maps.loadModule("Microsoft.Maps.SpatialDataService", function() {
     //Add an event handler for when the map moves.
     Microsoft.Maps.Events.addHandler(map, "viewchangeend", getNearByLocations);
-
-    //Trigger an initial search.
-    getNearByLocations();
   });
 }
 
-function getNearByLocations() {
+// Function checks SDS data and plots each matching data type within the distance radius, provided in km's by the argument
+function getNearByLocations(newRadius) {
   //Remove any existing data from the layer.
   layer.clear();
-
   //Hide infobox.
   infobox.setOptions({ visible: false });
-
-  //Create a query to get nearby data.
+  //Create a query to get nearby data, using the newRadius argument as the radius value
   var queryOptions = {
     queryUrl: sdsDataSourceUrl,
     spatialFilter: {
       spatialFilterType: "nearby",
       location: map.getCenter(),
-      radius: 25
+      radius: newRadius
     },
+    //Filter to retrieve Gyms / sports facilities
     filter: new Microsoft.Maps.SpatialDataService.Filter(
       "EntityTypeID",
       "eq",
       7997
-    ) //Filter to retrieve Gyms.
+    )
   };
 
   //Process the query.
@@ -192,7 +127,18 @@ function getNearByLocations() {
     map,
     function(data) {
       //Add results to the layer.
+      pinQuantity = data.length; // used to send amount of pins into text
+      console.log("pushpin Quantity ===== ", data.length);
+      map.entities.push(data);
       layer.add(data);
+      updateText(pinQuantity, distanceRadius);
     }
   );
+}
+
+//Update Screen message
+function updateText(amount, distance) {
+  document.getElementById(
+    "output"
+  ).innerHTML = `There are ${amount} sports facilities in a ${distance} mile radius - Now go workout!`;
 }

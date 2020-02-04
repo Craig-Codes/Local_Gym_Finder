@@ -68,15 +68,17 @@ html {
   margin-right: 5%;
   position: relative;
   width: 90%;
-  height: 450px;
+  height: 470px;
   -webkit-box-shadow: -1px 11px 16px -5px rgba(84, 84, 84, 1);
   -moz-box-shadow: -1px 11px 16px -5px rgba(84, 84, 84, 1);
   box-shadow: -1px 11px 16px -5px rgba(84, 84, 84, 1);
 }
 
 #output {
-  width: 100%;
-  padding: 5px;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 40px;
   height: 50px;
   color: #0033cc;
   font-size: 1.2em;
@@ -129,7 +131,7 @@ html {
   border: 2px solid black;
   color: #0033cc;
   background-color: white;
-  font-size: 1em;
+  font-size: 1.25em;
 }
 
 #two-miles:hover {
@@ -143,7 +145,7 @@ html {
   border: 2px solid black;
   color: #0033cc;
   background-color: white;
-  font-size: 1em;
+  font-size: 1.25em;
 }
 
 #five-miles:hover {
@@ -158,7 +160,7 @@ html {
   border: 2px solid black;
   color: #0033cc;
   background-color: white;
-  font-size: 1em;
+  font-size: 1.25em;
 }
 
 #ten-miles:hover {
