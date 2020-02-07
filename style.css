@@ -234,15 +234,31 @@ html {
     height: 430px;
   }
   #pin-left {
-    bottom: 83%;
+    bottom: 86%;
   }
 
   #pin-right {
-    bottom: 83%;
+    bottom: 86%;
   }
   #output {
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     height: 30px;
+    font-size: 1em;
+  }
+  .buttons {
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
+  #two-miles {
+    padding: 7px 7px 7px 7px;
+    font-size: 1em;
+  }
+  #five-miles {
+    padding: 7px 7px 7px 7px;
+    font-size: 1em;
+  }
+  #ten-miles {
+    padding: 7px 7px 7px 7px;
     font-size: 1em;
   }
 }
@@ -257,11 +273,28 @@ html {
     height: 440px;
   }
   #pin-left {
-    bottom: 82%;
+    bottom: 84%;
   }
 
   #pin-right {
-    bottom: 82%;
+    bottom: 84%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 67%;
+  }
+  #myMap {
+    /* where the google maps image will sit */
+    height: 440px;
+  }
+  #pin-left {
+    bottom: 86%;
+  }
+
+  #pin-right {
+    bottom: 86%;
   }
 }
 
