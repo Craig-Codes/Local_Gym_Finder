@@ -5,7 +5,7 @@
 
 html {
   height: 100%;
-  background: url(images/whitebrick.jpg) repeat-y center center fixed;
+  background: url(images/whitebrick.jpg) center center fixed;
   -webkit-background-size: 100% 100%;
   -moz-background-size: 100% 100%;
   -o-background-size: 100% 100%;
@@ -16,6 +16,7 @@ html {
   /* Whole app details sit inside a container */
   overflow: hidden;
   width: 50%;
+  height: 85%;
   display: block; /* Stretches the space out by the 300 pixels */
   margin: 0 auto; /* centers the container block */
   border-radius: 10px; /* makes edges soft */
@@ -172,6 +173,48 @@ html {
   .container {
     width: 90%;
   }
+  .app-title p {
+    width: 100%;
+    padding: 5px;
+    font-size: 2em;
+  }
+  .app-title {
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .buttons {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  #two-miles {
+    padding: 10px 10px 10px 10px;
+    font-size: 1em;
+  }
+  #five-miles {
+    padding: 10px 10px 10px 10px;
+    font-size: 1em;
+  }
+  #ten-miles {
+    padding: 10px 10px 10px 10px;
+    font-size: 1em;
+  }
+  #output {
+    margin-bottom: 20px;
+    height: 30px;
+    font-size: 1em;
+  }
+  #myMap {
+    /* where the google maps image will sit */
+    height: 420px;
+  }
+  #pin-left {
+    bottom: 84%;
+  }
+
+  #pin-right {
+    bottom: 84%;
+  }
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -193,11 +236,57 @@ html {
   .container {
     width: 70%;
   }
+  #myMap {
+    /* where the google maps image will sit */
+    height: 450px;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
+@media (min-width: 1500px) {
   .container {
     width: 60%;
+  }
+  #myMap {
+    /* where the google maps image will sit */
+    height: 470px;
+  }
+  .app-title p {
+    width: 100%;
+    padding: 15px;
+    font-size: 2.2em;
+  }
+  .app-title {
+    height: 75px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .buttons {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  #two-miles {
+    padding: 15px 15px 15px 15px;
+    font-size: 1.25em;
+  }
+  #five-miles {
+    padding: 15px 15px 15px 15px;
+    font-size: 1.25em;
+  }
+  #ten-miles {
+    padding: 15px 15px 15px 15px;
+    font-size: 1.25em;
+  }
+  #output {
+    margin-bottom: 40px;
+    height: 50px;
+    font-size: 1.2em;
+  }
+  #pin-left {
+    bottom: 81%;
+  }
+
+  #pin-right {
+    bottom: 81%;
   }
 }
