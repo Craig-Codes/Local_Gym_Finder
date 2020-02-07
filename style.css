@@ -240,6 +240,11 @@ html {
   #pin-right {
     bottom: 83%;
   }
+  #output {
+    margin-bottom: 30px;
+    height: 30px;
+    font-size: 1em;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
