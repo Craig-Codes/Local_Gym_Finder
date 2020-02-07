@@ -184,20 +184,20 @@ html {
     margin-bottom: 10px;
   }
   .buttons {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 7px 7px 7px 7px;
+    font-size: 0.75em;
   }
   #two-miles {
-    padding: 10px 10px 10px 10px;
-    font-size: 1em;
+    padding: 7px 7px 7px 7px;
+    font-size: 0.75em;
   }
   #five-miles {
-    padding: 10px 10px 10px 10px;
-    font-size: 1em;
+    padding: 7px 7px 7px 7px;
+    font-size: 0.75em;
   }
   #ten-miles {
-    padding: 10px 10px 10px 10px;
-    font-size: 1em;
+    padding: 7px 7px 7px 7px;
+    font-size: 0.75em;
   }
   #output {
     margin-bottom: 10px;
