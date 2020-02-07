@@ -5,7 +5,7 @@
 
 html {
   height: 100%;
-  background: url(images/whitebrick.jpg) center center fixed;
+  background: url(images/whitebrick.jpg) repeat-y center center fixed;
   -webkit-background-size: 100% 100%;
   -moz-background-size: 100% 100%;
   -o-background-size: 100% 100%;
