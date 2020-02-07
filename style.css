@@ -184,8 +184,8 @@ html {
     margin-bottom: 10px;
   }
   .buttons {
-    padding: 7px 7px 7px 7px;
-    font-size: 0.75em;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   #two-miles {
     padding: 7px 7px 7px 7px;
@@ -209,11 +209,11 @@ html {
     height: 380px;
   }
   #pin-left {
-    bottom: 84%;
+    bottom: 85%;
   }
 
   #pin-right {
-    bottom: 84%;
+    bottom: 85%;
   }
 }
 
