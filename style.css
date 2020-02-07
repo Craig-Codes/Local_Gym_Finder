@@ -229,6 +229,17 @@ html {
   .container {
     width: 80%;
   }
+  #myMap {
+    /* where the google maps image will sit */
+    height: 430px;
+  }
+  #pin-left {
+    bottom: 83%;
+  }
+
+  #pin-right {
+    bottom: 83%;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -238,7 +249,14 @@ html {
   }
   #myMap {
     /* where the google maps image will sit */
-    height: 450px;
+    height: 440px;
+  }
+  #pin-left {
+    bottom: 82%;
+  }
+
+  #pin-right {
+    bottom: 82%;
   }
 }
 
