@@ -1,4 +1,4 @@
-# Local_Gym_Finder
+# Local Gym Finder App
 
 JavaScript Web App utilizing the Bing Maps API
 
