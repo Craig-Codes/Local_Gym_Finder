@@ -1,3 +1,16 @@
+// Preloader
+$("body").append(
+  '<div style="" id="loadingDiv"><img class="loader" src="/images/preloader.png" alt="Loading..."></div>'
+);
+$(window).on("load", function() {
+  setTimeout(removeLoader, 1000);
+});
+function removeLoader() {
+  $("#loadingDiv").fadeOut(500, function() {
+    $("#loadingDiv").remove();
+  });
+}
+
 // Global Variables
 let longitude, latitude; // used to center the map based on user location
 let map; // makes map a global variable so that it can be accessed to change the properties for different button clicks
@@ -55,9 +68,9 @@ function tenMilesPressed() {
 // Map builder
 let infobox, layer;
 
-//Query URL to the NAVTEQ POI data source
+//Query URL to the Microsoft POI data source
 const sdsDataSourceUrl =
-  "https://spatial.virtualearth.net/REST/v1/data/c2ae584bbccc4916a0acf75d1e6947b4/NavteqEU/NavteqPOIs";
+  "https://spatial.virtualearth.net/REST/v1/data/Microsoft/PointsOfInterest";
 
 // Function draws a map, and sets the zoom value
 function getMap(zoomAmount) {
@@ -67,7 +80,7 @@ function getMap(zoomAmount) {
   });
 
   // Custom current location pin
-  var pushpin = new Microsoft.Maps.Pushpin(map.getCenter(), {
+  let pushpin = new Microsoft.Maps.Pushpin(map.getCenter(), {
     icon: "images/powerlifting.png",
     anchor: new Microsoft.Maps.Point(12, 39)
   });
@@ -83,7 +96,7 @@ function getMap(zoomAmount) {
 
   //Add a click event to the layer to show an infobox when a pushpin is clicked.
   Microsoft.Maps.Events.addHandler(layer, "click", function(e) {
-    var m = e.target.metadata;
+    let m = e.target.metadata;
     infobox.setOptions({
       title: m.DisplayName,
       description: m.AddressLine + ", " + m.Locality,
@@ -93,10 +106,7 @@ function getMap(zoomAmount) {
   });
 
   //Load the Bing Spatial Data Services module.
-  Microsoft.Maps.loadModule("Microsoft.Maps.SpatialDataService", function() {
-    //Add an event handler for when the map moves.
-    Microsoft.Maps.Events.addHandler(map, "viewchangeend", getNearByLocations);
-  });
+  Microsoft.Maps.loadModule("Microsoft.Maps.SpatialDataService", function() {});
 }
 
 // Function checks SDS data and plots each matching data type within the distance radius, provided in km's by the argument
@@ -106,8 +116,9 @@ function getNearByLocations(newRadius) {
   //Hide infobox.
   infobox.setOptions({ visible: false });
   //Create a query to get nearby data, using the newRadius argument as the radius value
-  var queryOptions = {
+  let queryOptions = {
     queryUrl: sdsDataSourceUrl,
+    top: 250, // max amount of results which can be displayed... bing maps supports 250 maximum
     spatialFilter: {
       spatialFilterType: "nearby",
       location: map.getCenter(),
@@ -117,7 +128,7 @@ function getNearByLocations(newRadius) {
     filter: new Microsoft.Maps.SpatialDataService.Filter(
       "EntityTypeID",
       "eq",
-      7997
+      142
     )
   };
 
@@ -128,7 +139,6 @@ function getNearByLocations(newRadius) {
     function(data) {
       //Add results to the layer.
       pinQuantity = data.length; // used to send amount of pins into text
-      console.log("pushpin Quantity ===== ", data.length);
       map.entities.push(data);
       layer.add(data);
       updateText(pinQuantity, distanceRadius);
