@@ -3,11 +3,6 @@
   font-family: "Permanent Marker", cursive;
 }
 
-element.style{
-  margin-top: 1vh;
-  margin-bottom: 1vh;
-}
-
 html {
   height: 100%;
   background: url(images/whitebrick.jpg) center center fixed;
@@ -21,8 +16,8 @@ html {
   /* Whole app details sit inside a container */
   overflow: hidden;
   width: 50%;
-  margin-top: 1vh;
-  margin-bottom: 1vh;
+  margin-top: 50px;
+  margin-bottom: 50px;
   display: block; /* Stretches the space out by the 300 pixels */
   margin: 0 auto; /* centers the container block */
   border-radius: 10px; /* makes edges soft */
