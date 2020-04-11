@@ -3,8 +3,11 @@
   font-family: "Permanent Marker", cursive;
 }
 
-html {
+html, body {
   height: 100%;
+}
+
+html {
   background: url(images/whitebrick.jpg) center center fixed;
   -webkit-background-size: 100% 100%;
   -moz-background-size: 100% 100%;
@@ -12,20 +15,27 @@ html {
   background-size: 100% 100%;
 }
 
+.centered-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .container {
   /* Whole app details sit inside a container */
-  overflow: hidden;
   width: 50%;
-  margin-bottom: 50px;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: block; /* Stretches the space out by the 300 pixels */
   border-radius: 10px; /* makes edges soft */
   border: 8px solid rgb(179, 177, 177);
   padding-bottom: 30px;
   background-color: #fff;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  margin: 0 auto;
   -webkit-box-shadow: 0px 0px 7px 1px rgba(77, 75, 75, 0.75),
     inset 0px 0px 7px 1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 7px 1px rgba(77, 75, 75, 0.75),
@@ -91,9 +101,9 @@ html {
   background-color: rgb(41, 41, 41);
   border-radius: 50%;
   display: inline-block;
-  position: absolute;
-  left: 4%;
-  bottom: 81%;
+  position: relative;
+  left: 3%;
+  top: -445px;
   -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
@@ -105,10 +115,9 @@ html {
   background-color: rgb(41, 41, 41);
   border-radius: 50%;
   display: inline-block;
-  z-index: 100;
-  position: absolute;
-  right: 4%;
-  bottom: 81%;
+  position: relative;
+  left: -88%;
+  top: -445px;
   -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.75);
@@ -207,12 +216,15 @@ html {
     /* where the google maps image will sit */
     height: 380px;
   }
-  #pin-left {
-    bottom: 85%;
-  }
 
-  #pin-right {
-    bottom: 85%;
+  #pin-right{
+    left: 82%;
+    top: -390px;
+  }
+  
+  #pin-left{
+    left: 3%;
+    top: -390px;
   }
 }
 
@@ -253,6 +265,16 @@ html {
   .container {
     width: 90%;
   }
+
+  #pin-right{
+    left: 86%;
+    top: -390px;
+  }
+  
+  #pin-left{
+    left: 3%;
+    top: -390px;
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -264,13 +286,17 @@ html {
     /* where the google maps image will sit */
     height: 430px;
   }
-  #pin-left {
-    bottom: 86%;
+
+  #pin-right{
+    left: 87%;
+    top: -435px;
+  }
+  
+  #pin-left{
+    left: 3%;
+    top: -435px;
   }
 
-  #pin-right {
-    bottom: 86%;
-  }
   #output {
     margin-bottom: 25px;
     height: 30px;
@@ -303,13 +329,17 @@ html {
     /* where the google maps image will sit */
     height: 440px;
   }
-  #pin-left {
-    bottom: 84%;
+
+  #pin-right{
+    left: 87%;
+    top: -450px;
+  }
+  
+  #pin-left{
+    left: 4%;
+    top: -450px;
   }
 
-  #pin-right {
-    bottom: 84%;
-  }
 }
 
 @media (min-width: 1200px) {
@@ -320,13 +350,17 @@ html {
     /* where the google maps image will sit */
     height: 440px;
   }
-  #pin-left {
-    bottom: 86%;
+
+  #pin-right{
+    left: 89%;
+    top: -450px;
+  }
+  
+  #pin-left{
+    left: 4%;
+    top: -450px;
   }
 
-  #pin-right {
-    bottom: 86%;
-  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -369,11 +403,23 @@ html {
     height: 50px;
     font-size: 1.2em;
   }
-  #pin-left {
-    bottom: 81%;
+
+#pin-right{
+  left: 89%;
+  top: -473px;
+}
+
+#pin-left{
+  left: 4%;
+  top: -473px;
+}
+}
+
+@media (min-width: 1750px) {
+
+  #pin-right{
+    left: 90%;
+    top: -473px;
   }
 
-  #pin-right {
-    bottom: 81%;
-  }
 }
