@@ -16,10 +16,8 @@ html {
   /* Whole app details sit inside a container */
   overflow: hidden;
   width: 50%;
-  margin-top: 50px;
   margin-bottom: 50px;
   display: block; /* Stretches the space out by the 300 pixels */
-  margin: 0 auto; /* centers the container block */
   border-radius: 10px; /* makes edges soft */
   border: 8px solid rgb(179, 177, 177);
   padding-bottom: 30px;
